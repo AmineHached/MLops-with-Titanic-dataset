@@ -1,0 +1,15 @@
+cmd: python src/feature_engineering.py
+deps:
+- path: data/interim/cleaned_train.csv
+  hash: md5
+  md5: d2f9d2c7397490616dfaad7c260a8911
+  size: 84595
+- path: src/feature_engineering.py
+  hash: md5
+  md5: 7d3f6645f37d98eaa4215b92b4ac6e40
+  size: 1663
+outs:
+- path: data/processed/final_train.csv
+  hash: md5
+  md5: f8751953a174500fd11dc8692302da15
+  size: 51706

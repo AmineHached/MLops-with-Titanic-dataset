@@ -1,0 +1,15 @@
+cmd: python src/clean_data.py
+deps:
+- path: data/raw/train.csv
+  hash: md5
+  md5: 2309cc5f04782ed9bb6016d9f4e381cf
+  size: 61194
+- path: src/clean_data.py
+  hash: md5
+  md5: 98fcef76b9af4aedda7d228288183d0c
+  size: 1208
+outs:
+- path: data/interim/cleaned_train.csv
+  hash: md5
+  md5: d2f9d2c7397490616dfaad7c260a8911
+  size: 84595
