@@ -40,7 +40,9 @@ jobs:
         run: |
           echo "Pipeline successful."
           echo "Recent MLflow runs:"
-          python -m mlflow runs list --experiment-name Titanic_Survival_Prediction
+          python -m mlflow experiments list
+          # Listing runs by ID (ID 1 is typically our Titanic experiment)
+          python -m mlflow runs list --experiment-id 1 || true
 
       - name: Log results to MLflow
         run: |
