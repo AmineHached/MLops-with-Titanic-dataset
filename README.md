@@ -23,6 +23,11 @@ graph TD
     E --> F[Model Registry Promotion to Production]
 ```
 
+**Data Tracking Mechanisms:**
+
+- **Raw Data**: Tracked using individual `.dvc` files (`train.csv.dvc`, `test.csv.dvc`, `gender_submission.csv.dvc`). These are the anchors in Git.
+- **Pipeline Outputs**: Tracked via `dvc.lock`. This file contains the hashes of all generated datasets (`cleaned_train.csv`, `final_train.csv`), eliminating the need for separate `.dvc` files for results.
+
 1.  **Stage: clean_data**: Processes `data/raw/train.csv` (V1). Handles missing values (Age median, Embarked mode) and drops the high-null `Cabin` column.
 2.  **Stage: feature_engineering**: Processes cleaned data (V2) into processed data (V3). Extracts `Title` from names, creates `FamilySize`, and applies **Class Balancing** via oversampling to handle survival imbalance.
 3.  **Stage: training**: Trains multiple models (Logistic Regression, Random Forest). Logs metrics (Accuracy, Precision, Recall, F1) and model artifacts to a local MLflow server.
