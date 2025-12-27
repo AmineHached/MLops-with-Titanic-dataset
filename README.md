@@ -60,7 +60,7 @@ graph TD
 Run the entire pipeline with a single command:
 
 ```bash
-dvc repro
+python -m dvc repro
 ```
 
 ### GitHub Actions
@@ -69,11 +69,11 @@ The `.github/workflows/mlops.yml` file ensures that every code change is validat
 
 1.  Installs dependencies from `requirements.txt`.
 2.  Initializes a temporary DVC environment.
-3.  Runs `dvc repro` to verify that the code, data, and models are in sync.
+3.  Runs `python -m dvc repro` to verify that the code, data, and models are in sync.
 
 ## 6. How to Run Locally
 
 1.  Clone the repository.
 2.  Install dependencies: `pip install -r requirements.txt`.
-3.  Run the pipeline: `dvc repro`.
-4.  View results in MLflow: `mlflow ui`.
+3.  Run the pipeline: `python -m dvc repro`.
+4.  View results in MLflow: `python -m mlflow ui`.
