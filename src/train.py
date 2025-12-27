@@ -19,8 +19,8 @@ def train():
     mlflow.set_experiment("Titanic_Survival_Prediction")
     
     models = [
-        ("Logistic_Regression", LogisticRegression(max_iter=1000)),
-        ("Random_Forest", RandomForestClassifier(n_estimators=100))
+        ("Logistic_Regression", LogisticRegression(max_iter=1000, random_state=42)),
+        ("Random_Forest", RandomForestClassifier(n_estimators=100, min_samples_leaf=2, max_features='sqrt', random_state=42))
     ]
     
     for name, model in models:

@@ -25,13 +25,19 @@ def feature_engineering(input_path, output_path):
         df['Title'] = df['Title'].map(title_mapping)
         df['Title'] = df['Title'].fillna(0)
     
-    # Drop columns that are no longer needed
-    cols_to_drop = ['Name', 'Ticket', 'PassengerId']
-    df.drop(columns=[col for col in cols_to_drop if col in df.columns], inplace=True)
-    
+    # Class Balancing (Basic Oversampling for minority class if needed)
+    # Survived=1 is usually the minority in Titanic
+    if 'Survived' in df.columns:
+        df_survived = df[df['Survived'] == 1]
+        df_not_survived = df[df['Survived'] == 0]
+        if len(df_survived) < len(df_not_survived):
+            df_survived_oversampled = df_survived.sample(len(df_not_survived), replace=True, random_state=42)
+            df = pd.concat([df_not_survived, df_survived_oversampled], axis=0)
+            print("Class balancing applied: Oversampled survived class.")
+
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     df.to_csv(output_path, index=False)
-    print(f"Feature engineered data saved to {output_path}")
+    print(f"Enhanced data saved to {output_path}")
 
 if __name__ == "__main__":
     feature_engineering("data/interim/cleaned_train.csv", "data/processed/final_train.csv")
