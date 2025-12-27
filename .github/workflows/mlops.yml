@@ -14,6 +14,13 @@ jobs:
         with:
           python-version: "3.10"
 
+      - name: Download raw data
+        run: |
+          mkdir -p data/raw
+          curl -L "https://raw.githubusercontent.com/dsindy/kaggle-titanic/master/data/train.csv" -o data/raw/train.csv
+          curl -L "https://raw.githubusercontent.com/dsindy/kaggle-titanic/master/data/test.csv" -o data/raw/test.csv
+          curl -L "https://raw.githubusercontent.com/dsindy/kaggle-titanic/master/data/gender_submission.csv" -o data/raw/gender_submission.csv
+
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
