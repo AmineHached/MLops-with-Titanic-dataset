@@ -1,0 +1,48 @@
+name: Titanic MLOps Pipeline
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Setup DVC
+        run: |
+          dvc init --no-scm
+          # Note: In a real CI, you'd use a remote like S3/GCS. 
+          # For this exercise, we can't easily use a local remote in GitHub Actions.
+          # We'll skip pushing to remote in CI or use a temporary local remote.
+          mkdir -p dvc_remote
+          dvc remote add -d localremote dvc_remote/
+
+      - name: Run DVC Pipeline
+        run: |
+          dvc repro
+
+      - name: Display Metrics
+        run: |
+          # If we had a metrics file tracked by DVC, we'd show it here.
+          echo "Pipeline successful."
+
+      - name: Log results to MLflow
+        run: |
+          # MLflow is already integrated in train.py and register_model.py
+          echo "MLflow logs created."
