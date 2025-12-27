@@ -1,0 +1,22 @@
+artifact_path: file:C:/Users/mhached/Desktop/ESPRIT/MLOPS/tp2/mlruns/1/models/m-d8a5689e580049ddaa0d45493c4a67d2/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.14.0
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.8.0
+mlflow_version: 3.7.0
+model_id: m-d8a5689e580049ddaa0d45493c4a67d2
+model_size_bytes: 2309097
+model_uuid: m-d8a5689e580049ddaa0d45493c4a67d2
+prompts: null
+run_id: 4108e9ea83a34f54ba5c28abef8f8483
+utc_time_created: '2025-12-27 10:31:15.367087'
