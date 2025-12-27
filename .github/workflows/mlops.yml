@@ -39,8 +39,11 @@ jobs:
 
       - name: Display Metrics
         run: |
-          # If we had a metrics file tracked by DVC, we'd show it here.
           echo "Pipeline successful."
+          echo "Recent MLflow runs:"
+          # Since it's a local sqlite, we can't easily query without mlflow installed, 
+          # which we already did in the install step.
+          mlflow runs list --experiment-name Titanic_Survival_Prediction
 
       - name: Log results to MLflow
         run: |
