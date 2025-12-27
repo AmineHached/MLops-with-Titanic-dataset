@@ -1,0 +1,12 @@
+pandas
+scikit-learn
+mlflow
+dvc
+dvc-s3
+boto3
+numpy
+matplotlib
+seaborn
+fpdf
+dagshub
+python-dotenv

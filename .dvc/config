@@ -1,0 +1,5 @@
+[core]
+    no_scm = True
+    remote = localremote
+['remote "localremote"']
+    url = C:\Users\mhached\Desktop\ESPRIT\MLOPS\tp2\dvc_remote
