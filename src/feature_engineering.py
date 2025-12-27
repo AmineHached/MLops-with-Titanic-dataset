@@ -35,6 +35,10 @@ def feature_engineering(input_path, output_path):
             df = pd.concat([df_not_survived, df_survived_oversampled], axis=0)
             print("Class balancing applied: Oversampled survived class.")
 
+    # Drop columns that are no longer needed
+    cols_to_drop = ['Name', 'Ticket', 'PassengerId']
+    df = df.drop(columns=[col for col in cols_to_drop if col in df.columns])
+
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     df.to_csv(output_path, index=False)
     print(f"Enhanced data saved to {output_path}")
