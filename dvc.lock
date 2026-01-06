@@ -7,10 +7,6 @@ stages:
       hash: md5
       md5: 2309cc5f04782ed9bb6016d9f4e381cf
       size: 61194
-    - path: src/clean_data.py
-      hash: md5
-      md5: 98fcef76b9af4aedda7d228288183d0c
-      size: 1208
     outs:
     - path: data/interim/cleaned_train.csv
       hash: md5
@@ -23,10 +19,6 @@ stages:
       hash: md5
       md5: d2f9d2c7397490616dfaad7c260a8911
       size: 84595
-    - path: src/feature_engineering.py
-      hash: md5
-      md5: 75ee9e0092d143a2a6f529a4d9c59b64
-      size: 2219
     outs:
     - path: data/processed/final_train.csv
       hash: md5
@@ -39,9 +31,5 @@ stages:
       hash: md5
       md5: f2090fee085c5503acfb0ec957b9a619
       size: 63647
-    - path: src/train.py
-      hash: md5
-      md5: 33ba9e80c12457398226cad5a7023397
-      size: 2014
   registration:
     cmd: python src/register_model.py
