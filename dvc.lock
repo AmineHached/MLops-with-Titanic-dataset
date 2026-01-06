@@ -45,8 +45,3 @@ stages:
       size: 2014
   registration:
     cmd: python src/register_model.py
-    deps:
-    - path: src/register_model.py
-      hash: md5
-      md5: f5998541685b2573a86fedb97c673d9f
-      size: 1211
