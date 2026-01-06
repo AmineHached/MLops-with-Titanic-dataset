@@ -38,6 +38,14 @@ jobs:
         run: |
           python -m dvc repro
 
+      - name: Train ML Models
+        run: |
+          python src/train.py
+
+      - name: Register Best Model
+        run: |
+          python src/register_model.py
+
       - name: Display Metrics
         run: |
           echo "Pipeline successful."

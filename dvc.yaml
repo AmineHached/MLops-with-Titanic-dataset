@@ -11,13 +11,3 @@ stages:
       - data/interim/cleaned_train.csv
     outs:
       - data/processed/final_train.csv
-  training:
-    cmd: python src/train.py
-    deps:
-      - data/processed/final_train.csv
-    # MLflow runs are not tracked as DVC outs unless we log them as such,
-    # but we'll track metrics in dvc if we had a metrics file.
-    # For now, we'll just track the input data.
-  registration:
-    cmd: python src/register_model.py
-    # Depends on model created in training
