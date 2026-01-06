@@ -3,7 +3,8 @@ name: Titanic MLOps Pipeline
 on: [push, pull_request]
 
 jobs:
-  run-pipeline:
+  data-processing:
+    name: Data Processing with DVC
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -38,9 +39,70 @@ jobs:
         run: |
           python -m dvc repro
 
+      - name: Upload processed data
+        uses: actions/upload-artifact@v3
+        with:
+          name: processed-data
+          path: |
+            data/interim/
+            data/processed/
+
+  model-training:
+    name: Train ML Models
+    runs-on: ubuntu-latest
+    needs: data-processing
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Download processed data
+        uses: actions/download-artifact@v3
+        with:
+          name: processed-data
+          path: data/
+
       - name: Train ML Models
         run: |
           python src/train.py
+
+      - name: Upload MLflow artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: mlflow-runs
+          path: |
+            mlruns/
+            mlflow.db
+
+  model-registration:
+    name: Register Best Model
+    runs-on: ubuntu-latest
+    needs: model-training
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Download MLflow artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: mlflow-runs
 
       - name: Register Best Model
         run: |
@@ -51,9 +113,5 @@ jobs:
           echo "Pipeline successful."
           echo "Recent MLflow runs:"
           python -m mlflow experiments search
-          # Listing runs by ID (ID 1 is typically our Titanic experiment)
           python -m mlflow runs list --experiment-id 1 || true
-
-      - name: Log results to MLflow
-        run: |
           echo "MLflow logs created."
