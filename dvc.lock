@@ -33,3 +33,27 @@ stages:
       size: 63647
   registration:
     cmd: python src/register_model.py
+  monitoring:
+    cmd: python src/monitoring.py
+    deps:
+    - path: data/prod.csv
+      hash: md5
+      md5: 7533b82eae4b582610cbd68aa636b017
+      size: 28629
+    - path: data/raw/train.csv
+      hash: md5
+      md5: 2309cc5f04782ed9bb6016d9f4e381cf
+      size: 61194
+    - path: src/monitoring.py
+      hash: md5
+      md5: 8a840c99e8cecbcfb3cf2df5f426aac3
+      size: 4617
+    outs:
+    - path: data/monitoring/latest_report.json
+      hash: md5
+      md5: e30e42b08105fc38b30af5d6b462e708
+      size: 1520
+    - path: train_stats.json
+      hash: md5
+      md5: 11773387e932aed4c181b69cc14fc180
+      size: 574

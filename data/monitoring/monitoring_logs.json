@@ -1,0 +1,6 @@
+{"timestamp": "2026-01-14T17:18:10.133635", "level": "WARNING", "message": "Drift detected in PassengerId", "module": "monitoring", "feature": "PassengerId", "drift": true, "diff": 654.5, "threshold": 257.3538420152301}
+{"timestamp": "2026-01-14T17:18:10.134024", "level": "INFO", "message": "Feature Pclass is stable", "module": "monitoring", "feature": "Pclass", "drift": false, "diff": 0.043091736074192255, "threshold": 0.836071240977049}
+{"timestamp": "2026-01-14T17:18:10.134327", "level": "INFO", "message": "Feature Age is stable", "module": "monitoring", "feature": "Age", "drift": false, "diff": 0.5734727143869627, "threshold": 14.526497332334042}
+{"timestamp": "2026-01-14T17:18:10.144510", "level": "INFO", "message": "Feature SibSp is stable", "module": "monitoring", "feature": "SibSp", "drift": false, "diff": 0.07563943528855804, "threshold": 1.1027434322934317}
+{"timestamp": "2026-01-14T17:18:10.144802", "level": "INFO", "message": "Feature Parch is stable", "module": "monitoring", "feature": "Parch", "drift": false, "diff": 0.010750782680607252, "threshold": 0.8060572211299483}
+{"timestamp": "2026-01-14T17:18:10.145166", "level": "INFO", "message": "Feature Fare is stable", "module": "monitoring", "feature": "Fare", "drift": false, "diff": 3.422980520633999, "threshold": 49.6934285971809}

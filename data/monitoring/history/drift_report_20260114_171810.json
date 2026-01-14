@@ -1,0 +1,47 @@
+{
+    "timestamp": "2026-01-14T17:18:10.133212",
+    "features": {
+        "PassengerId": {
+            "status": "Drift Detected",
+            "current_mean": 1100.5,
+            "ref_mean": 446.0,
+            "diff": 654.5,
+            "threshold": 257.3538420152301
+        },
+        "Pclass": {
+            "status": "Stable",
+            "current_mean": 2.2655502392344498,
+            "ref_mean": 2.308641975308642,
+            "diff": 0.043091736074192255,
+            "threshold": 0.836071240977049
+        },
+        "Age": {
+            "status": "Stable",
+            "current_mean": 30.272590361445783,
+            "ref_mean": 29.69911764705882,
+            "diff": 0.5734727143869627,
+            "threshold": 14.526497332334042
+        },
+        "SibSp": {
+            "status": "Stable",
+            "current_mean": 0.4473684210526316,
+            "ref_mean": 0.5230078563411896,
+            "diff": 0.07563943528855804,
+            "threshold": 1.1027434322934317
+        },
+        "Parch": {
+            "status": "Stable",
+            "current_mean": 0.3923444976076555,
+            "ref_mean": 0.38159371492704824,
+            "diff": 0.010750782680607252,
+            "threshold": 0.8060572211299483
+        },
+        "Fare": {
+            "status": "Stable",
+            "current_mean": 35.627188489208635,
+            "ref_mean": 32.204207968574636,
+            "diff": 3.422980520633999,
+            "threshold": 49.6934285971809
+        }
+    }
+}

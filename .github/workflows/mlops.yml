@@ -115,3 +115,37 @@ jobs:
           python -m mlflow experiments search
           python -m mlflow runs list --experiment-id 1 || true
           echo "MLflow logs created."
+
+  data-monitoring:
+    name: Data Drift Monitoring
+    runs-on: ubuntu-latest
+    needs: model-registration
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run Monitoring
+        run: |
+          # Ensure directories exist
+          mkdir -p data/raw
+          # Simulating data download since DVC remote isn't accessible in CI
+          curl -L "https://raw.githubusercontent.com/dsindy/kaggle-titanic/master/data/train.csv" -o data/raw/train.csv
+          curl -L "https://raw.githubusercontent.com/dsindy/kaggle-titanic/master/data/test.csv" -o data/prod.csv
+          python src/monitoring.py
+
+      - name: Upload Monitoring Reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: drift-reports
+          path: |
+            data/monitoring/
+            train_stats.json

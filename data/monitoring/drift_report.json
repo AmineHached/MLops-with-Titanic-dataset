@@ -1,0 +1,23 @@
+{
+    "PassengerId": {
+        "status": "Drift Detected",
+        "reference_mean": 446.0,
+        "current_mean": 1100.5,
+        "diff_std_ratio": 2.543191097808701
+    },
+    "Pclass": {
+        "status": "Stable"
+    },
+    "Age": {
+        "status": "Stable"
+    },
+    "SibSp": {
+        "status": "Stable"
+    },
+    "Parch": {
+        "status": "Stable"
+    },
+    "Fare": {
+        "status": "Stable"
+    }
+}

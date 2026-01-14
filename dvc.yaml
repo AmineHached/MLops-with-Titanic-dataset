@@ -11,3 +11,12 @@ stages:
       - data/interim/cleaned_train.csv
     outs:
       - data/processed/final_train.csv
+  monitoring:
+    cmd: python src/monitoring.py
+    deps:
+      - src/monitoring.py
+      - data/raw/train.csv
+      - data/prod.csv
+    outs:
+      - train_stats.json
+      - data/monitoring/latest_report.json

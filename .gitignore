@@ -2,3 +2,4 @@ dvc_remote/
 mlruns/
 mlflow.db
 .dvc/tmp/
+/train_stats.json

@@ -1,0 +1,44 @@
+{
+    "PassengerId": {
+        "mean": 446.0,
+        "std": 257.3538420152301,
+        "missing_count": 0,
+        "count": 891
+    },
+    "Survived": {
+        "mean": 0.3838383838383838,
+        "std": 0.4865924542648575,
+        "missing_count": 0,
+        "count": 891
+    },
+    "Pclass": {
+        "mean": 2.308641975308642,
+        "std": 0.836071240977049,
+        "missing_count": 0,
+        "count": 891
+    },
+    "Age": {
+        "mean": 29.69911764705882,
+        "std": 14.526497332334042,
+        "missing_count": 177,
+        "count": 714
+    },
+    "SibSp": {
+        "mean": 0.5230078563411896,
+        "std": 1.1027434322934317,
+        "missing_count": 0,
+        "count": 891
+    },
+    "Parch": {
+        "mean": 0.38159371492704824,
+        "std": 0.8060572211299483,
+        "missing_count": 0,
+        "count": 891
+    },
+    "Fare": {
+        "mean": 32.204207968574636,
+        "std": 49.6934285971809,
+        "missing_count": 0,
+        "count": 891
+    }
+}
