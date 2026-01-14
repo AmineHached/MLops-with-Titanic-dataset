@@ -46,13 +46,17 @@ stages:
       size: 61194
     - path: src/monitoring.py
       hash: md5
-      md5: 8a840c99e8cecbcfb3cf2df5f426aac3
-      size: 4617
+      md5: 01303bbfb860d98fec2f92d215124e4c
+      size: 4949
     outs:
     - path: data/monitoring/latest_report.json
       hash: md5
-      md5: e30e42b08105fc38b30af5d6b462e708
+      md5: e593330d19a4216aa8af89f45ef34ac7
       size: 1520
+    - path: data/monitoring/monitoring_dashboard.html
+      hash: md5
+      md5: b964f08cfbe6fa84e30492422e200971
+      size: 14198
     - path: train_stats.json
       hash: md5
       md5: 11773387e932aed4c181b69cc14fc180

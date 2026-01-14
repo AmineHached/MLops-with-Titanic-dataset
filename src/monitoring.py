@@ -3,6 +3,10 @@ import numpy as np
 import json
 import os
 from datetime import datetime
+try:
+    from generate_dashboard import generate_html
+except ImportError:
+    from src.generate_dashboard import generate_html
 
 import logging
 
@@ -105,8 +109,13 @@ def monitor_production(prod_path, stats_path, history_dir):
     print(f"Historique sauvegardé dans : {history_file}")
     
     # Also update the latest report
-    with open("data/monitoring/latest_report.json", "w") as f:
+    latest_report_path = "data/monitoring/latest_report.json"
+    with open(latest_report_path, "w") as f:
         json.dump(drift_report, f, indent=4)
+        
+    # Generate HTML Dashboard
+    dashboard_path = "data/monitoring/monitoring_dashboard.html"
+    generate_html(drift_report, dashboard_path)
 
 if __name__ == "__main__":
     # Configuration based on user requirement to use data/train.csv and data/prod.csv

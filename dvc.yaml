@@ -20,3 +20,4 @@ stages:
     outs:
       - train_stats.json
       - data/monitoring/latest_report.json
+      - data/monitoring/monitoring_dashboard.html

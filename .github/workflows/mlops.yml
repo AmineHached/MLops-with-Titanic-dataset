@@ -149,3 +149,4 @@ jobs:
           path: |
             data/monitoring/
             train_stats.json
+            data/monitoring/monitoring_dashboard.html
